@@ -43,9 +43,12 @@ expect {
   eof { send_user "Failed!\n"; send_user "\n$expect_out(buffer)"; exit 1 }
 }
 
+spawn id -nu
+expect -re "(.*)\n"
+set user $expect_out(1,string)
 
 stty -echo
-send_user -- "Password for $env(USER): "
+send_user -- "Password for $user: "
 expect_user -re "(.*)\n"
 send_user "\n"
 stty echo
