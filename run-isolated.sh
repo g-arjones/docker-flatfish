@@ -37,7 +37,7 @@ XAUTH=/tmp/.docker.xauth
 touch $XAUTH
 xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f $XAUTH nmerge -
 
-sudo docker run -it \
+docker run -it \
         --rm \
         --net host \
         --volume=$XSOCK:$XSOCK:rw \

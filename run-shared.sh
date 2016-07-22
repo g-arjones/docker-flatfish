@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo docker run -it \
+docker run -it \
     --rm \
     --net host \
     --env="DISPLAY" \
