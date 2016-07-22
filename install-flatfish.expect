@@ -43,17 +43,12 @@ expect {
   eof { send_user "Failed!\n"; send_user "\n$expect_out(buffer)"; exit 1 }
 }
 
-spawn id -nu
-expect -re "(.*)\n"
-set user $expect_out(1,string)
-
 stty -echo
-send_user -- "Password for $user: "
+send_user -- "Password: "
 expect_user -re "(.*)\n"
 send_user "\n"
 stty echo
 set pass $expect_out(1,string)
-
 
 send_user "Running autoproj bootstrap, please wait... "
 spawn ruby autoproj_bootstrap git git@github.com:Brazilian-Institute-of-Robotics/bir.flat_fish.br-buildconf.git
