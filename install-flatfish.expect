@@ -43,9 +43,19 @@ expect {
   eof { send_user "Failed!\n"; send_user "\n$expect_out(buffer)"; exit 1 }
 }
 
+
+stty -echo
+send_user -- "Password for $env(USER): "
+expect_user -re "(.*)\n"
+send_user "\n"
+stty echo
+set pass $expect_out(1,string)
+
+
 send_user "Running autoproj bootstrap, please wait... "
 spawn ruby autoproj_bootstrap git git@github.com:Brazilian-Institute-of-Robotics/bir.flat_fish.br-buildconf.git
 expect {
+  "*sudo* password for*" { send "$pass\n"; exp_continue }
   "*all, none or a comma-separated list*" { send "all\n"; exp_continue }
   "*continue bootstrapping anyway*" { send "yes\n"; exp_continue }
   "*sure you want to continue*" { send "yes\n"; exp_continue }
@@ -58,6 +68,7 @@ expect {
 send_user "Checking out packages, this may take a while... "
 spawn bash -c "source ./env.sh ; aup"
 expect {
+  "*sudo* password for*" { send "$pass\n"; exp_continue }
   "*ow should I interact with gitorious.org*" { send "ssh\n"; exp_continue }
   "*ow should I interact with github.com*" { send "ssh\n"; exp_continue }
   "*hich flavor of Rock do you want to use*" { send "master\n"; exp_continue }
@@ -85,6 +96,7 @@ cd ../../..
 send_user "Updating packages. Please, wait... "
 spawn bash -c "source ./env.sh ; aup"
 expect {
+  "*sudo* password for*" { send "$pass\n"; exp_continue }
   "*ow should I interact with gitorious.org*" { send "ssh\n"; exp_continue }
   "*ow should I interact with github.com*" { send "ssh\n"; exp_continue }
   "*hich flavor of Rock do you want to use*" { send "master\n"; exp_continue }
