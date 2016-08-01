@@ -8,6 +8,7 @@ docker run -it \
     --user=$USER \
     --workdir="$HOME" \
     --volume="$HOME:$HOME" \
+    --volume="/etc/localtime:/etc/localtime:ro" \
     --volume="/etc/group:/etc/group:ro" \
     --volume="/etc/passwd:/etc/passwd:ro" \
     --volume="/etc/shadow:/etc/shadow:ro" \

@@ -42,6 +42,7 @@ docker run -it \
         --net host \
         --volume=$XSOCK:$XSOCK:rw \
         --volume=$XAUTH:$XAUTH:rw \
+        --volume=/etc/localtime:/etc/localtime:ro \
         --volume=$FLATFISH_PATH:$HOME:rw \
         --env="XAUTHORITY=${XAUTH}" \
         --env="DISPLAY" \
