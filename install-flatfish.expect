@@ -63,8 +63,8 @@ expect {
 }
 
 # this should not be necessary
-send_user "Checking out packages, this may take a while... "
-spawn bash -c "source ./env.sh ; aup"
+send_user "Configuring autoproj, this may take a while... "
+spawn bash -c "source ./env.sh ; autoproj reconfigure"
 expect {
   "*sudo* password for*" { send "$pass\n"; exp_continue }
   "*ow should I interact with gitorious.org*" { send "ssh\n"; exp_continue }
@@ -77,10 +77,6 @@ expect {
   "*'s password:*" { send_user "Failed!\nMake sure you have added all ssh keys\n"; exit 1 }
   eof { send_user "OK!\n" }
 }
-
-# not necessary in the future
-spawn sh -c "rm -rf simulation/gazebo"
-expect eof
 
 # also should not be necessary
 cd .autoproj/remotes/github__rock_core_rock_package_set_git/
@@ -108,13 +104,6 @@ expect {
 }
 
 send_user "Building RoCK. Go have some fun and check back in a few hours... "
-spawn bash -c "source ./env.sh ; amake -k"
-expect {
-  "*finished successfully*" { send_user "Success.\n\nRoCK is now ready for use!\n"; exit 0 }
-  eof
-}
-
-# lets invoke it twice, sometimes dependencies issues arise
 spawn bash -c "source ./env.sh ; amake -k"
 expect {
   "*finished successfully*" { send_user "Success.\n\nRoCK is now ready for use!\n"; exit 0 }

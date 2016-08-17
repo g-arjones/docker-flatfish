@@ -50,5 +50,6 @@ docker run -it \
         --user="$USER" \
         --workdir="$HOME" \
         --name flatfish \
+        --privileged \
         flatfish:isolated \
         /bin/bash
