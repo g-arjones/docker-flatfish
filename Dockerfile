@@ -15,6 +15,7 @@ RUN export DEBIAN_FRONTEND=noninteractive; \
     apt-get install -y autoconf automake avahi-daemon castxml cmake freeglut3-dev gazebo7 gazebo7-plugin-base gobject-introspection graphviz graphviz-dev gstreamer0.10-plugins-good gtk-doc-tools libatlas-base-dev libavahi-client-dev libavahi-client3 libavahi-core-dev libboost-dev libboost-filesystem-dev libboost-graph-dev libboost-iostreams-dev libboost-program-options-dev libboost-regex-dev libboost-system-dev libboost-thread-dev libfftw3-dev libgazebo7-dev libgdal1-dev libgoogle-glog-dev libgps-dev libgstreamer-plugins-base0.10-dev libgstreamer0.10-dev libgtk2.0-dev libjpeg-dev liblapack-dev libomniorb4-dev libopencv-dev libopenscenegraph-dev libpcre3-dev libpoco-dev libprocps4-dev libproj-dev libqt4-dev libqt4-opengl-dev libqtwebkit-dev libqwt5-qt4-dev libsdformat4-dev libsigc++-2.0-0v5 libsigc++-2.0-dev libsuitesparse-dev libsysfs-dev libtinyxml-dev libudev-dev libusb-1.0-0-dev libusb-dev libv4l-dev libvtk5-dev libvtk5-qt4-dev libxml-xpath-perl libxml2-dev omniidl omniorb-nameserver openscenegraph pkg-config qt4-designer qt4-qmake ruby-activesupport ruby-thor && \
     apt-get install -y doxygen && \
     apt-get install -y protobuf-compiler && \
+    apt-get install -y lib32stdc++6 && \
     apt-get clean && \
     rm -rf /tmp/* /var/tmp/*
 
