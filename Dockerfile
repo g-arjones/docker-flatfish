@@ -16,6 +16,7 @@ RUN export DEBIAN_FRONTEND=noninteractive; \
     apt-get install -y doxygen && \
     apt-get install -y protobuf-compiler && \
     apt-get install -y lib32stdc++6 && \
+    apt-get install -y python-protobuf && \
     apt-get clean && \
     rm -rf /tmp/* /var/tmp/*
 
