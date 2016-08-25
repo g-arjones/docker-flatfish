@@ -32,20 +32,16 @@ if [ ! -f "$FLATFISH_PATH/.gitconfig" ]; then
     cp "$HOME/.gitconfig" "$FLATFISH_PATH/"
 fi
 
-XSOCK=/tmp/.X11-unix
-XAUTH=/tmp/.docker.xauth
-touch $XAUTH
-xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f $XAUTH nmerge -
+#XSOCK=/tmp/.X11-unix
+#XAUTH=/tmp/.docker.xauth
+#touch $XAUTH
+#xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f $XAUTH nmerge -
 
 docker run -it \
         --rm \
         --net host \
-        --volume=$XSOCK:$XSOCK:rw \
-        --volume=$XAUTH:$XAUTH:rw \
         --volume=/etc/localtime:/etc/localtime:ro \
         --volume=$FLATFISH_PATH:$HOME:rw \
-        --env="XAUTHORITY=${XAUTH}" \
-        --env="DISPLAY" \
         --env="TERM" \
         --user="$USER" \
         --workdir="$HOME" \
