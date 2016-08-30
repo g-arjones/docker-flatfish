@@ -80,10 +80,19 @@ expect {
 
 # also should not be necessary
 cd .autoproj/remotes/github__rock_core_rock_package_set_git/
-spawn git merge autobuild/sdformat4 --no-commit --no-ff
+spawn git merge autobuild/sdformat4 --no-edit
+expect eof
+spawn git remote add arjones git@github.com:g-arjones/rock-package_set.git
+expect eof
+spawn git fetch arjones
+expect eof
+spawn git merge arjones/aravis_0_4_0 --no-edit
 expect eof
 cd ../github__Brazilian_Institute_of_Robotics_bir_flat_fish_package_set_git/
-spawn git merge autobuild/gazebo7 --no-commit --no-ff
+spawn git merge autobuild/gazebo7 --no-edit
+expect eof
+cd ../github__Brazilian_Institute_of_Robotics_bir_flat_fish_br_package_set_git/
+spawn git merge autobuild/urdf_1_0 --no-edit
 expect eof
 cd ../../..
 
