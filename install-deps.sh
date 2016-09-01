@@ -18,4 +18,5 @@ export DEBIAN_FRONTEND=noninteractive; \
     apt-get install -y python-protobuf && \
     apt-get install -y lib32stdc++6 && \
     apt-get install -y libyaml-cpp-dev && \
+    apt-get install -y openocd p7zip gcc-arm-none-eabi gdb-arm-none-eabi && \
     apt-get install -y libhidapi-dev
