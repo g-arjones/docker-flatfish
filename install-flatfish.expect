@@ -91,9 +91,6 @@ expect eof
 cd ../github__Brazilian_Institute_of_Robotics_bir_flat_fish_package_set_git/
 spawn git merge autobuild/gazebo7 --no-edit
 expect eof
-cd ../github__Brazilian_Institute_of_Robotics_bir_flat_fish_br_package_set_git/
-spawn git merge autobuild/urdf_1_0 --no-edit
-expect eof
 cd ../../..
 
 send_user "Updating packages. Please, wait... "
