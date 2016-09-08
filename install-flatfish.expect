@@ -78,19 +78,6 @@ expect {
   eof { send_user "OK!\n" }
 }
 
-# also should not be necessary
-cd .autoproj/remotes/github__rock_core_rock_package_set_git/
-spawn git remote add arjones git@github.com:g-arjones/rock-package_set.git
-expect eof
-spawn git fetch arjones
-expect eof
-spawn git merge arjones/aravis_0_4_0 --no-edit
-expect eof
-cd ../github__Brazilian_Institute_of_Robotics_bir_flat_fish_package_set_git/
-spawn git merge autobuild/gazebo7 --no-edit
-expect eof
-cd ../../..
-
 send_user "Updating packages. Please, wait... "
 spawn bash -c "source ./env.sh ; aup"
 expect {
