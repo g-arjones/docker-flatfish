@@ -34,7 +34,7 @@ ENV LANGUAGE=en_US.UTF-8
 ENV LANG=en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8
 
-COPY install-flatfish.expect /usr/local/bin/install-flatfish
+COPY install-flatfish.sh /usr/local/bin/install-flatfish
 RUN chmod 755 /usr/local/bin/install-flatfish
 
 CMD ["/usr/sbin/sshd", "-D"]
