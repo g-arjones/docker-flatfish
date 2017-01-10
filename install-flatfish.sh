@@ -20,6 +20,7 @@ ROCK_BRANCH: master
 USE_OCL: false
 rtt_corba_implementation: omniorb
 rtt_target: gnulinux
+cxx11: false
 EOF
 
 export AUTOPROJ_OSDEPS_MODE=all
