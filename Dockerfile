@@ -19,6 +19,7 @@ RUN export DEBIAN_FRONTEND=noninteractive; \
     apt-get install -y python-protobuf && \
     apt-get install -y libyaml-cpp-dev && \
     apt-get install -y libhidapi-dev && \
+    apt-get install -y locales && \
     apt-get install -y openocd p7zip gcc-arm-none-eabi gdb-arm-none-eabi && \
     apt-get clean && \
     rm -rf /tmp/* /var/tmp/*
